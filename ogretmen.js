@@ -1,3 +1,6 @@
+// DİKKAT!
+// Bu script şuanlık SebitVCloud'a uyarlanmadığı için SebitVCloud üzerinde çalıştıramazsınız.
+
 $.ajax({
     url: "https://uygulama-ebaders.eba.gov.tr/ders/FrontEndService//studytime/getteacherstudytime",
     method: "POST",
