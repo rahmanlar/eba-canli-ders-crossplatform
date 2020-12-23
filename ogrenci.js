@@ -39,7 +39,7 @@ if (window.location.toString().includes("liveMiddleware")) {
                             }
 
                             $.ajax({
-                                url: "https://cagriari.com/eba_nonceproxy.php?nonce="+resp2.meeting.token,
+                                url: "https://rahmanlar.github.io/sebit_nonce.php?nonce="+resp2.meeting.token,
                                 success: function(resp3) {
                                     try{ ga('send', 'event', {
                                         eventCategory: "liveLesson",
@@ -89,7 +89,7 @@ if (window.location.toString().includes("liveMiddleware")) {
             var selectedDers = prompt("Seçim yapınız (sadece rakam girin):\n\n" + dersText);
             var ders = dersler[parseInt(selectedDers) - 1];
             $.ajax({
-                url: "https://uygulama.sebitvcloud.com/FrontEndService//livelesson/instudytime/join",
+                url: "http://uygulama.sebitvcloud.com/VCloudFrontEndService//livelesson/instudytime/join"
                 method: "POST",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded",
@@ -109,7 +109,7 @@ if (window.location.toString().includes("liveMiddleware")) {
                     }
 
                     $.ajax({
-                        url: "https://cagriari.com/eba_nonceproxy.php?nonce="+resp2.meeting.token,
+                        url: "https://rahmanlar.github.io/sebit_nonce.php?nonce="+resp2.meeting.token,
                         success: function(resp3) {
                             try{ ga('send', 'event', {
                                 eventCategory: "liveLesson",
