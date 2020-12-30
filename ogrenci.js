@@ -1,3 +1,5 @@
+// Forked from https://github.com/sh4dowb/eba-canli-ders-crossplatform
+
 if (window.location.toString().includes("liveMiddleware")) {
     $.ajax({
         url: "https://sebitvcloud.com/getlivelessoninfo",
@@ -19,7 +21,7 @@ if (window.location.toString().includes("liveMiddleware")) {
                     window.location = resp.liveLessonInfo.studyTime.registrantJoinUrl;
                 } else {
                     $.ajax({
-                        url: "https://uygulama.sebitvcloud.com/FrontEndService/livelesson/inpage/instudytime/join",
+                        url: "https://uygulama.sebitvcloud.com/VCloudFrontEndService/livelesson/inpage/instudytime/start",
                         method: "POST",
                         headers: {
                             "Content-Type": "application/x-www-form-urlencoded",
@@ -39,14 +41,15 @@ if (window.location.toString().includes("liveMiddleware")) {
                             }
 
                             $.ajax({
-                                url: "https://rahmanlar.github.io/sebit_nonce.php?nonce="+resp2.meeting.token,
+                                url: "https://cagriari.com/eba_nonceproxy_sebit.php?nonce="+resp2.meeting.token,
                                 success: function(resp3) {
                                     try{ ga('send', 'event', {
                                         eventCategory: "liveLesson",
                                         eventAction: "join",
                                         eventLabel: ""
                                     }); }catch(a){}
-                                    window.location = resp2.meeting.url + "?tk=" + resp3.substring(1).split('|')[0];
+                                    console.log(resp3,resp2)
+                                   window.location = "https://us02web.zoom.us/j/"+resp.liveLessonInfo.studyTime.studyTimeId + "?tk=" + resp3.substring(1).split('|')[0];
                                 }
                             });
                         }
@@ -57,7 +60,7 @@ if (window.location.toString().includes("liveMiddleware")) {
     });
 } else {
     $.ajax({
-        url: "https://uygulama.sebitvcloud.com/FrontEndService/livelesson/inpage/instudytime/join",
+        url: "https://uygulama.sebitvcloud.com/VCloudFrontEndService//studytime/getstudentstudytime",
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -89,7 +92,7 @@ if (window.location.toString().includes("liveMiddleware")) {
             var selectedDers = prompt("Seçim yapınız (sadece rakam girin):\n\n" + dersText);
             var ders = dersler[parseInt(selectedDers) - 1];
             $.ajax({
-                url: "http://uygulama.sebitvcloud.com/VCloudFrontEndService//livelesson/instudytime/join"
+                url: "https://uygulama.sebitvcloud.com/VCloudFrontEndService//livelesson/instudytime/start",
                 method: "POST",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded",
@@ -109,14 +112,14 @@ if (window.location.toString().includes("liveMiddleware")) {
                     }
 
                     $.ajax({
-                        url: "https://rahmanlar.github.io/sebit_nonce.php?nonce="+resp2.meeting.token,
+                        url: "https://cagriari.com/eba_nonceproxy_sebit.php?nonce="+resp2.meeting.token,
                         success: function(resp3) {
                             try{ ga('send', 'event', {
                                 eventCategory: "liveLesson",
                                 eventAction: "join",
                                 eventLabel: ""
                             }); }catch(a){}
-                            window.location = resp2.meeting.url + "?tk=" + resp3.substring(1).split('|')[0];
+                            window.location = "https://us02web.zoom.us/j/"+resp.liveLessonInfo.studyTime.studyTimeId + "?tk=" + resp3.substring(1).split('|')[0];
                         }
                     });
                 }
