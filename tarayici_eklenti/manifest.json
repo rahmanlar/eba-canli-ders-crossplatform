@@ -2,21 +2,27 @@
   "manifest_version": 2,
   "name": "EBA Canlı Ders Crossplatform",
   "version": "2.1",
-  "permissions":["tabs", "activeTab", "https://*.eba.gov.tr/*","https://cagriari.com/eba_nonceproxy.php?*"],
-
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "https://*.eba.gov.tr/*",
+    "https://cagriari.com/eba_nonceproxy.php?*"
+  ],
   "description": "EBA canlı ders için crossplatform desteği - https://github.com/sh4dowb/eba-canli-ders-crossplatform",
-
   "icons": {
     "256": "icon.png"
   },
-
   "content_scripts": [
     {
-      "matches": ["https://ders.eba.gov.tr/ders/proxy/*"],
-      "js": ["jquery-3.5.1.min.js", "eba.js"]
+      "matches": [
+        "https://ders.eba.gov.tr/ders/proxy/*"
+      ],
+      "js": [
+        "jquery-3.5.1.min.js",
+        "eba.js"
+      ]
     }
   ],
-
   "browser_action": {
     "default_icon": {
       "32": "icon-32.png"
@@ -24,7 +30,8 @@
     "default_title": "EBA Canlı Ders"
   },
   "background": {
-      "scripts": ["background.js"]
-    }
+    "scripts": [
+      "background.js"
+    ]
+  }
 }
-
