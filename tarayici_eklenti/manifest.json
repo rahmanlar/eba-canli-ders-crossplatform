@@ -14,13 +14,8 @@
   },
   "content_scripts": [
     {
-      "matches": [
-        "https://ders.eba.gov.tr/ders/proxy/*"
-      ],
-      "js": [
-        "jquery-3.5.1.min.js",
-        "eba.js"
-      ]
+      "matches": ["https://ders.eba.gov.tr/ders/proxy/*"],
+      "js": ["jquery-3.5.1.min.js", "eba.js"]
     }
   ],
   "browser_action": {
@@ -30,8 +25,6 @@
     "default_title": "EBA Canlı Ders"
   },
   "background": {
-    "scripts": [
-      "background.js"
-    ]
+    "scripts": ["background.js"]
   }
 }
